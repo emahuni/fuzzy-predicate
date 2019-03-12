@@ -107,8 +107,8 @@ describe("fuzzy-predicate", function() {
       assert.deepStrictEqual(results, ["John Doe", "To John Doe", "john-doe"]);
     });
     
-    it("matches strings containing the query using given levenshtein distance", function() {
-      var results = haystack.filter(fuzzy("Jaine", 1));
+    it("matches strings containing the query considering the similarity threshold (0 means not similar, 1 they are 100% similar)", function() {
+      var results = haystack.filter(fuzzy("Jaine", 0.1));
       assert.deepStrictEqual(results, ["Jane Smith"]);
     });
 
